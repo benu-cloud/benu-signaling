@@ -17,7 +17,6 @@ func ParseArgs() (s ServerSettings, m rabbitmq.MessageBrokerSettings) {
 	var serverPort PortNumber = PortNumber(8080)
 	var serverTLSCert string
 	var serverTLSKey string
-	var serverDebug bool
 
 	var rmqhost string
 	var rmqport PortNumber = PortNumber(5672)
@@ -29,7 +28,6 @@ func ParseArgs() (s ServerSettings, m rabbitmq.MessageBrokerSettings) {
 	flag.Var(&serverPort, "httpport", "HTTP server hosting port, Should be in the range 0-65535.")
 	flag.StringVar(&serverTLSCert, "httpcert", "", "TLS cert file (optional - must also provide key file).")
 	flag.StringVar(&serverTLSKey, "httpkey", "", "TLS key file (optional - must also provide cert file).")
-	flag.BoolVar(&serverDebug, "httpdebug", false, "Whether to serve a basic HTML alongside the API.")
 
 	flag.StringVar(&rmqhost, "rmqhost", "localhost", "RabbitMQ message broker host.")
 	flag.Var(&rmqport, "rmqport", "RabbitMQ message broker port. Should be in the range 0-65535.")
